@@ -1,5 +1,3 @@
-rootProject.name = "credit-filter"
+rootProject.name = "loan-request-filter"
 
-include("filter-service")
-include("order-service")
-include("credit-filter-commons")
+include("loan-request-filter-commons")
