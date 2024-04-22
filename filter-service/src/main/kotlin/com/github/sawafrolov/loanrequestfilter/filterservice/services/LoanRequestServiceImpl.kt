@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional
 class LoanRequestServiceImpl(
     private val loanRequestMapper: LoanRequestMapper,
     private val loanRequestRepository: LoanRequestRepository,
-    private val orderValidationService: OrderValidationService,
+    private val loanRequestValidationService: LoanRequestValidationService,
     private val elasticSearchLoanRequestRepository: ElasticSearchLoanRequestRepository
 ): LoanRequestService {
 
@@ -23,7 +23,7 @@ class LoanRequestServiceImpl(
     @Transactional
     override fun submitLoanRequest(loanRequestDto: LoanRequestDto) {
         val loanRequest = loanRequestMapper.mapToEntity(loanRequestDto)
-        val stopFactors = orderValidationService.checkStopFactors(loanRequestDto)
+        val stopFactors = loanRequestValidationService.checkStopFactors(loanRequestDto)
         if (stopFactors.isEmpty()) {
             loanRequest.stopFactors = null
             loanRequest.status = LoanRequestStatus.IN_PROGRESS

@@ -12,12 +12,12 @@ import org.springframework.stereotype.Service
 
 @Service
 @RequiredArgsConstructor
-class OrderValidationServiceImpl(
+class LoanRequestValidationServiceImpl(
     private val dmnEngine: DmnEngine,
     private val dmnDecision: DmnDecision,
     private val loanRequestMapper: LoanRequestMapper,
     private val orderCreateDto2VariableMapConverter: Converter<LoanRequestCheckDto, VariableMap>
-): OrderValidationService {
+): LoanRequestValidationService {
 
     override fun checkStopFactors(loanRequestDto: LoanRequestDto): List<String> {
         val loanRequestCheckDto = loanRequestMapper.mapToCheckDto(loanRequestDto)

@@ -1,4 +1,4 @@
-package com.github.sawafrolov.creditfilter
+package com.github.sawafrolov.loanrequestfilter.filterservice
 
 import com.github.sawafrolov.loanrequestfilter.commons.dto.LoanRequestDto
 import java.math.BigDecimal
