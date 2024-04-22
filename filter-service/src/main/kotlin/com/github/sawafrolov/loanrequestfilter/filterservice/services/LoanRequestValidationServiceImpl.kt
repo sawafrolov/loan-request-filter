@@ -16,18 +16,16 @@ class LoanRequestValidationServiceImpl(
     private val dmnEngine: DmnEngine,
     private val dmnDecision: DmnDecision,
     private val loanRequestMapper: LoanRequestMapper,
-    private val orderCreateDto2VariableMapConverter: Converter<LoanRequestCheckDto, VariableMap>
+    private val loanRequestCheckDto2VariableMapConverter: Converter<LoanRequestCheckDto, VariableMap>
 ): LoanRequestValidationService {
 
     override fun checkStopFactors(loanRequestDto: LoanRequestDto): List<String> {
         val loanRequestCheckDto = loanRequestMapper.mapToCheckDto(loanRequestDto)
-        val variables = orderCreateDto2VariableMapConverter.convert(loanRequestCheckDto)
+        val variables = loanRequestCheckDto2VariableMapConverter.convert(loanRequestCheckDto)
 
-        // todo спарсить результат из камунды
-        val result = dmnEngine
+        return dmnEngine
             .evaluateDecisionTable(dmnDecision, variables)
             .resultList
-
-        return listOf()
+            .map { it["rejectReason"] as String }
     }
 }
