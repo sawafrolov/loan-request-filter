@@ -1,4 +1,4 @@
-package com.github.sawafrolov.creditfilter.filterservice.repositories
+package com.github.sawafrolov.loanrequestfilter.filterservice.repositories
 
 import com.github.sawafrolov.loanrequestfilter.commons.documents.LoanRequestDocument
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository

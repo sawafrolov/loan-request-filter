@@ -1,4 +1,4 @@
-package com.github.sawafrolov.creditfilter.filterservice.mappers
+package com.github.sawafrolov.loanrequestfilter.filterservice.mappers
 
 import com.github.sawafrolov.loanrequestfilter.commons.documents.LoanRequestDocument
 import com.github.sawafrolov.loanrequestfilter.commons.dto.LoanRequestCheckDto

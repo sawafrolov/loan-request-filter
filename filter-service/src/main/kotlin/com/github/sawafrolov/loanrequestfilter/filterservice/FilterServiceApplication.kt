@@ -1,4 +1,4 @@
-package com.github.sawafrolov.creditfilter.filterservice
+package com.github.sawafrolov.loanrequestfilter.filterservice
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

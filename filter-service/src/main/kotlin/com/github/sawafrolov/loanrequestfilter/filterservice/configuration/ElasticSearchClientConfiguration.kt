@@ -1,4 +1,4 @@
-package com.github.sawafrolov.creditfilter.filterservice.configuration
+package com.github.sawafrolov.loanrequestfilter.filterservice.configuration
 
 import org.springframework.boot.autoconfigure.domain.EntityScan
 import org.springframework.context.annotation.Configuration

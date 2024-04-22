@@ -1,6 +1,6 @@
-package com.github.sawafrolov.creditfilter.filterservice.services
+package com.github.sawafrolov.loanrequestfilter.filterservice.services
 
-import com.github.sawafrolov.creditfilter.filterservice.mappers.LoanRequestMapper
+import com.github.sawafrolov.loanrequestfilter.filterservice.mappers.LoanRequestMapper
 import com.github.sawafrolov.loanrequestfilter.commons.dto.LoanRequestCheckDto
 import com.github.sawafrolov.loanrequestfilter.commons.dto.LoanRequestDto
 import lombok.RequiredArgsConstructor

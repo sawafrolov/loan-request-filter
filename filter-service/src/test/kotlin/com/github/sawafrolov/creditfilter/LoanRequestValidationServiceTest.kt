@@ -1,6 +1,6 @@
 package com.github.sawafrolov.creditfilter
 
-import com.github.sawafrolov.creditfilter.filterservice.services.OrderValidationService
+import com.github.sawafrolov.loanrequestfilter.filterservice.services.OrderValidationService
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue

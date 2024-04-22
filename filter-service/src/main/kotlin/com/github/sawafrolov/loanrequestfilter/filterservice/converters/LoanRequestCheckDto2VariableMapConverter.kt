@@ -1,4 +1,4 @@
-package com.github.sawafrolov.creditfilter.filterservice.converters
+package com.github.sawafrolov.loanrequestfilter.filterservice.converters
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.github.sawafrolov.loanrequestfilter.commons.dto.LoanRequestCheckDto

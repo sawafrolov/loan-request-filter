@@ -1,4 +1,4 @@
-package com.github.sawafrolov.creditfilter.filterservice.configuration
+package com.github.sawafrolov.loanrequestfilter.filterservice.configuration
 
 import org.camunda.bpm.dmn.engine.DmnDecision
 import org.camunda.bpm.dmn.engine.DmnEngine

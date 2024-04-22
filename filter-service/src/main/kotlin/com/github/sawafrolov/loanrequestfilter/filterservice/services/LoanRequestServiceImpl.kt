@@ -1,8 +1,8 @@
-package com.github.sawafrolov.creditfilter.filterservice.services
+package com.github.sawafrolov.loanrequestfilter.filterservice.services
 
-import com.github.sawafrolov.creditfilter.filterservice.mappers.LoanRequestMapper
-import com.github.sawafrolov.creditfilter.filterservice.repositories.ElasticSearchLoanRequestRepository
-import com.github.sawafrolov.creditfilter.filterservice.repositories.LoanRequestRepository
+import com.github.sawafrolov.loanrequestfilter.filterservice.mappers.LoanRequestMapper
+import com.github.sawafrolov.loanrequestfilter.filterservice.repositories.ElasticSearchLoanRequestRepository
+import com.github.sawafrolov.loanrequestfilter.filterservice.repositories.LoanRequestRepository
 import com.github.sawafrolov.loanrequestfilter.commons.dto.LoanRequestDto
 import com.github.sawafrolov.loanrequestfilter.commons.enums.LoanRequestStatus
 import lombok.RequiredArgsConstructor
