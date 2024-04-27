@@ -1,4 +1,4 @@
-package com.github.sawafrolov.loanrequestfilter.filterservice.configuration
+package com.github.sawafrolov.loanrequestfilter.starter.camunda
 
 import org.camunda.bpm.dmn.engine.DmnDecision
 import org.camunda.bpm.dmn.engine.DmnEngine
@@ -11,10 +11,11 @@ import java.io.FileInputStream
 @Configuration
 class CamundaConfiguration {
 
-    @Value("\${camunda.dmn-file-location}")
+    @Value("\${camunda.dmn.file-location}")
     private lateinit var dmnFileLocation: String
 
-    private val dmnDecisionKey = "Decision_0ozg60u"
+    @Value("\${camunda.dmn.decision-key}")
+    private lateinit var dmnDecisionKey: String
 
     @Bean
     fun dmnEngine(): DmnEngine {
