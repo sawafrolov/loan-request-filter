@@ -23,7 +23,8 @@ class LoanRequestServiceImpl(
     @Transactional
     override fun submitLoanRequest(loanRequestDto: LoanRequestDto) {
         val loanRequest = loanRequestMapper.mapToEntity(loanRequestDto)
-        val stopFactors = loanRequestValidationService.checkStopFactors(loanRequestDto)
+        val loanRequestCheckDto = loanRequestMapper.mapToCheckDto(loanRequestDto)
+        val stopFactors = loanRequestValidationService.checkStopFactors(loanRequestCheckDto)
         if (stopFactors.isEmpty()) {
             loanRequest.stopFactors = null
             loanRequest.status = LoanRequestStatus.IN_PROGRESS

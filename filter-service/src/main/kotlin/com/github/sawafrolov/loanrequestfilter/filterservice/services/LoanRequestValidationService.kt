@@ -1,8 +1,8 @@
 package com.github.sawafrolov.loanrequestfilter.filterservice.services
 
-import com.github.sawafrolov.loanrequestfilter.commons.dto.LoanRequestDto
+import com.github.sawafrolov.loanrequestfilter.commons.dto.LoanRequestCheckDto
 
 interface LoanRequestValidationService {
 
-    fun checkStopFactors(loanRequestDto: LoanRequestDto): List<String>
+    fun checkStopFactors(loanRequestCheckDto: LoanRequestCheckDto): List<String>
 }
