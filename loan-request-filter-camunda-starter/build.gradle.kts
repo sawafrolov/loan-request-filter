@@ -21,10 +21,6 @@ repositories {
     mavenCentral()
 }
 
-springBoot {
-    buildInfo()
-}
-
 dependencies {
 
     // Spring Boot
@@ -36,7 +32,6 @@ dependencies {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
         jvmTarget = "17"
     }
 }

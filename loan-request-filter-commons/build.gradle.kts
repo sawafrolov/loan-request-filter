@@ -23,10 +23,6 @@ repositories {
     mavenCentral()
 }
 
-springBoot {
-    buildInfo()
-}
-
 dependencies {
 
     // Spring Boot
@@ -47,13 +43,12 @@ dependencies {
     kapt("com.querydsl:querydsl-apt:5.0.0:general")
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "17"
-    }
+kapt {
+    keepJavacAnnotationProcessors = true
 }
 
-tasks.withType<Test> {
-    useJUnitPlatform()
+tasks.withType<KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "17"
+    }
 }
