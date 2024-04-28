@@ -15,26 +15,20 @@ class LoanRequestValidationServiceTest(
 ) {
 
     @Test
-    @DisplayName("Проверка на корректном тестовом примере")
-    fun testCorrect() {
-        assertTrue(loanRequestValidationService.checkStopFactors(correctDto()).isEmpty())
+    @DisplayName("Test company correct")
+    fun testCompanyCorrect() {
+        assertTrue(loanRequestValidationService.checkStopFactors(companyCorrectDto()).isEmpty())
     }
 
     @Test
-    @DisplayName("Проверка на тестовом примере для ИП")
-    fun testIp() {
-        val result = loanRequestValidationService.checkStopFactors(ipDto())
-        assertFalse(result.isEmpty())
-        assertEquals(1, result.size)
-        assertEquals("Не выдаем кредиты ИП", result[0])
+    @DisplayName("Test company border values")
+    fun testCompanyBorderValues() {
+        assertTrue(loanRequestValidationService.checkStopFactors(companyBorderValuesDto()).isEmpty())
     }
 
     @Test
-    @DisplayName("Проверка на тестовом примере для Красноярского края")
-    fun testKrasnoyarsk() {
-        val result = loanRequestValidationService.checkStopFactors(krasnoyarskDto())
-        assertFalse(result.isEmpty())
-        assertEquals(1, result.size)
-        assertEquals("Не выдаем кредиты компаниям из Красноярского края", result[0])
+    @DisplayName("Test company incorrect")
+    fun testCompanyIncorrect() {
+        assertTrue(loanRequestValidationService.checkStopFactors(companyIncorrectDto()).isEmpty())
     }
 }

@@ -13,6 +13,10 @@ group = "com.github.sawafrolov"
 version = "1.0.0"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
+tasks.named("bootJar") {
+    enabled = false
+}
+
 repositories {
     mavenCentral()
 }

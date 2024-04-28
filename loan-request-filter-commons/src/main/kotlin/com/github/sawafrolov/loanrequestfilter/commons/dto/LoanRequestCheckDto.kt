@@ -1,9 +1,7 @@
 package com.github.sawafrolov.loanrequestfilter.commons.dto
 
-import lombok.Builder
 import java.math.BigDecimal
 
-@Builder
 data class LoanRequestCheckDto(
 
     /**
