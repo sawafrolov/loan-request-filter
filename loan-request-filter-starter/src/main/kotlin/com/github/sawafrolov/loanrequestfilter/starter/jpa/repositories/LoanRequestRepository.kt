@@ -1,4 +1,4 @@
-package com.github.sawafrolov.loanrequestfilter.filterservice.repositories
+package com.github.sawafrolov.loanrequestfilter.starter.jpa.repositories
 
 import com.github.sawafrolov.loanrequestfilter.commons.entities.LoanRequest
 import org.springframework.data.repository.CrudRepository

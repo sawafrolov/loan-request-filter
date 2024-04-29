@@ -25,9 +25,13 @@ dependencies {
 
     // Spring Boot
     implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
     // Commons
     implementation(project(":loan-request-filter-commons"))
+
+    // PostgreSQL
+    runtimeOnly("org.postgresql:postgresql")
 
     // Camunda DMN Engine
     implementation("org.camunda.bpm.dmn:camunda-engine-dmn:${property("camundaDmnEngineVersion")}")
