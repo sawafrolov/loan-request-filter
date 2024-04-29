@@ -4,7 +4,6 @@ import com.github.sawafrolov.loanrequestfilter.filterservice.mappers.LoanRequest
 import com.github.sawafrolov.loanrequestfilter.filterservice.repositories.LoanRequestRepository
 import com.github.sawafrolov.loanrequestfilter.commons.dto.LoanRequestDto
 import com.github.sawafrolov.loanrequestfilter.commons.enums.LoanRequestStatus
-import com.github.sawafrolov.loanrequestfilter.starter.elasticsearch.repositories.ElasticSearchLoanRequestRepository
 import lombok.RequiredArgsConstructor
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.stereotype.Service
@@ -16,7 +15,6 @@ class LoanRequestServiceImpl(
     private val loanRequestMapper: LoanRequestMapper,
     private val loanRequestRepository: LoanRequestRepository,
     private val loanRequestValidationService: LoanRequestValidationService,
-    private val elasticSearchLoanRequestRepository: ElasticSearchLoanRequestRepository
 ): LoanRequestService {
 
     @Transactional
@@ -29,13 +27,10 @@ class LoanRequestServiceImpl(
             loanRequest.stopFactors = null
             loanRequest.status = LoanRequestStatus.IN_PROGRESS
             loanRequest.protectedFromChange = true
-            loanRequestRepository.save(loanRequest)
-            val loanRequestDocument = loanRequestMapper.mapToDocument(loanRequestDto)
-            elasticSearchLoanRequestRepository.save(loanRequestDocument)
         } else {
             loanRequest.stopFactors = stopFactors.joinToString()
             loanRequest.status = LoanRequestStatus.STOP_FACTORS
-            loanRequestRepository.save(loanRequest)
         }
+        loanRequestRepository.save(loanRequest)
     }
 }

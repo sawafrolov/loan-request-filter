@@ -1,6 +1,5 @@
 package com.github.sawafrolov.loanrequestfilter.filterservice.mappers
 
-import com.github.sawafrolov.loanrequestfilter.commons.documents.LoanRequestDocument
 import com.github.sawafrolov.loanrequestfilter.commons.dto.LoanRequestCheckDto
 import com.github.sawafrolov.loanrequestfilter.commons.dto.LoanRequestDto
 import com.github.sawafrolov.loanrequestfilter.commons.entities.LoanRequest
@@ -14,6 +13,4 @@ interface LoanRequestMapper {
     fun mapToEntity(loanRequestDto: LoanRequestDto): LoanRequest
 
     fun mapToCheckDto(loanRequestDto: LoanRequestDto): LoanRequestCheckDto
-
-    fun mapToDocument(loanRequestDto: LoanRequestDto): LoanRequestDocument
 }
