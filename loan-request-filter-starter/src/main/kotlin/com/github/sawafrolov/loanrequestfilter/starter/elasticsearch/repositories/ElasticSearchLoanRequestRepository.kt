@@ -1,8 +1,0 @@
-package com.github.sawafrolov.loanrequestfilter.starter.elasticsearch.repositories
-
-import com.github.sawafrolov.loanrequestfilter.commons.documents.LoanRequestDocument
-import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
-import org.springframework.stereotype.Repository
-
-@Repository
-interface ElasticSearchLoanRequestRepository: ElasticsearchRepository<LoanRequestDocument, String>

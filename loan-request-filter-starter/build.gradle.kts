@@ -25,7 +25,6 @@ dependencies {
 
     // Spring Boot
     implementation("org.springframework.boot:spring-boot-starter")
-    implementation("org.springframework.boot:spring-boot-starter-data-elasticsearch")
 
     // Commons
     implementation(project(":loan-request-filter-commons"))

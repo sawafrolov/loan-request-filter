@@ -13,7 +13,7 @@ import java.io.FileInputStream
 @ConditionalOnProperty(
     prefix = "camunda",
     name = ["enabled"],
-    value = ["true"]
+    havingValue = "true"
 )
 class CamundaConfiguration {
 
