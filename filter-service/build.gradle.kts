@@ -38,6 +38,7 @@ dependencies {
 
     // Starters
     implementation(project(":loan-request-filter-camunda-starter"))
+    implementation(project(":loan-request-filter-elasticsearch-starter"))
 
     // Liquibase
     implementation("org.liquibase:liquibase-core")

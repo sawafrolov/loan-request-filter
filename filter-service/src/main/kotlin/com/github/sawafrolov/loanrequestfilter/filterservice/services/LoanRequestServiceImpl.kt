@@ -1,10 +1,10 @@
 package com.github.sawafrolov.loanrequestfilter.filterservice.services
 
 import com.github.sawafrolov.loanrequestfilter.filterservice.mappers.LoanRequestMapper
-import com.github.sawafrolov.loanrequestfilter.filterservice.repositories.ElasticSearchLoanRequestRepository
 import com.github.sawafrolov.loanrequestfilter.filterservice.repositories.LoanRequestRepository
 import com.github.sawafrolov.loanrequestfilter.commons.dto.LoanRequestDto
 import com.github.sawafrolov.loanrequestfilter.commons.enums.LoanRequestStatus
+import com.github.sawafrolov.loanrequestfilter.starter.elasticsearch.repositories.ElasticSearchLoanRequestRepository
 import lombok.RequiredArgsConstructor
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.stereotype.Service
@@ -19,8 +19,8 @@ class LoanRequestServiceImpl(
     private val elasticSearchLoanRequestRepository: ElasticSearchLoanRequestRepository
 ): LoanRequestService {
 
-    @KafkaListener(topics = ["\${loan-request-filter.loan-request-topic}"])
     @Transactional
+    @KafkaListener(topics = ["\${loan-request-filter.loan-request-topic}"])
     override fun submitLoanRequest(loanRequestDto: LoanRequestDto) {
         val loanRequest = loanRequestMapper.mapToEntity(loanRequestDto)
         val loanRequestCheckDto = loanRequestMapper.mapToCheckDto(loanRequestDto)
