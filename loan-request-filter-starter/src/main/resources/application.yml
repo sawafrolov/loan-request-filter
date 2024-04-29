@@ -1,5 +1,69 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:15432/loan-request-filter
+    username: pgadmin
+    password: pgadmin
+    driver-class-name: org.postgresql.Driver
+  data:
+    rest:
+      base-path: /api/v1
+      default-page-size: 10
+      max-page-size: 100
+      return-body-on-create: true
+      return-body-on-update: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  liquibase:
+    enabled: false
+  sql:
+    init:
+      encoding: UTF-8
+  kafka:
+    bootstrap-servers: localhost:29092
+    producer:
+      bootstrap-servers: localhost:29092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        partitioner:
+          class: org.apache.kafka.clients.producer.RoundRobinPartitioner
+    consumer:
+      bootstrap-servers: localhost:29092
+      group-id: loan-request-filter
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      properties:
+        enable:
+          auto:
+            commit: true
+        spring:
+          deserializer:
+            value:
+              delegate:
+                class: org.springframework.kafka.support.serializer.JsonDeserializer
+          json:
+            value:
+              default:
+                type: com.github.sawafrolov.loanrequestfilter.commons.dto.LoanRequestCheckDto
+
+kafka:
+  producer:
+    enabled: false
+  consumer:
+    enabled: false
+  loan-request-topic: loan-requests
+
 camunda:
+  enabled: false
   dmn:
     decision-key: Decision_0ozg60u
     file-location: loan-request-filter-starter/src/main/resources/camunda/diagram.dmn
-  enabled: false
