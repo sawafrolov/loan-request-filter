@@ -1,4 +1,0 @@
-camunda:
-  dmn:
-    decision-key: Decision_0ozg60u
-    file-location: loan-request-filter-camunda-starter/src/main/resources/camunda/diagram.dmn

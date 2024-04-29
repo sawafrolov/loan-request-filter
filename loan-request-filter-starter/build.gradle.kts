@@ -29,6 +29,9 @@ dependencies {
 
     // Commons
     implementation(project(":loan-request-filter-commons"))
+
+    // Camunda DMN Engine
+    implementation("org.camunda.bpm.dmn:camunda-engine-dmn:${property("camundaDmnEngineVersion")}")
 }
 
 tasks.withType<KotlinCompile> {

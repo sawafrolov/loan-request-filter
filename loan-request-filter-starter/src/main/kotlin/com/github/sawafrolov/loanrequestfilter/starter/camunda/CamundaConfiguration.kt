@@ -4,11 +4,17 @@ import org.camunda.bpm.dmn.engine.DmnDecision
 import org.camunda.bpm.dmn.engine.DmnEngine
 import org.camunda.bpm.dmn.engine.DmnEngineConfiguration
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import java.io.FileInputStream
 
 @Configuration
+@ConditionalOnProperty(
+    prefix = "camunda",
+    name = ["enabled"],
+    value = ["true"]
+)
 class CamundaConfiguration {
 
     @Value("\${camunda.dmn.file-location}")
