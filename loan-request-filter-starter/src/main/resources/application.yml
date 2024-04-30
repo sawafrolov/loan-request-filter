@@ -56,10 +56,7 @@ spring:
                 type: com.github.sawafrolov.loanrequestfilter.commons.dto.LoanRequestCheckDto
 
 kafka:
-  producer:
-    enabled: false
-  consumer:
-    enabled: false
+  enabled: false
   loan-request-topic: loan-requests
 
 camunda:

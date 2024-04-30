@@ -35,6 +35,9 @@ dependencies {
 
     // Camunda DMN Engine
     implementation("org.camunda.bpm.dmn:camunda-engine-dmn:${property("camundaDmnEngineVersion")}")
+
+    // Kafka
+    implementation("org.springframework.kafka:spring-kafka")
 }
 
 tasks.withType<KotlinCompile> {

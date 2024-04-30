@@ -1,2 +1,3 @@
 com.github.sawafrolov.loanrequestfilter.starter.camunda.CamundaConfiguration
 com.github.sawafrolov.loanrequestfilter.starter.jpa.JpaConfiguration
+com.github.sawafrolov.loanrequestfilter.starter.kafka.KafkaConfiguration
