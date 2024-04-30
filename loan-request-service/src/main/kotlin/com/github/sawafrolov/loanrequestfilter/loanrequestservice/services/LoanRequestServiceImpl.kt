@@ -18,7 +18,7 @@ class LoanRequestServiceImpl(
     private val kafkaTemplate: KafkaTemplate<String, Any>
 ): LoanRequestService {
 
-    @Value("\${loan-request-filter.loan-request-topic}")
+    @Value("\${kafka.loan-request-topic}")
     private lateinit var loanRequestTopic: String
 
     override fun submitLoanRequest(loanRequestId: UUID) {

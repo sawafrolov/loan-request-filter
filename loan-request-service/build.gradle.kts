@@ -33,6 +33,9 @@ dependencies {
     // Commons
     implementation(project(":loan-request-filter-commons"))
 
+    // Starter
+    implementation(project(":loan-request-filter-starter"))
+
     // Liquibase
     implementation("org.liquibase:liquibase-core")
 

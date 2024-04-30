@@ -18,7 +18,7 @@ class LoanRequestServiceImpl(
 ): LoanRequestService {
 
     @Transactional
-    @KafkaListener(topics = ["\${loan-request-filter.loan-request-topic}"])
+    @KafkaListener(topics = ["\${kafka.loan-request-topic}"])
     override fun submitLoanRequest(loanRequestDto: LoanRequestDto) {
         val loanRequest = loanRequestMapper.mapToEntity(loanRequestDto)
         val loanRequestCheckDto = loanRequestMapper.mapToCheckDto(loanRequestDto)
