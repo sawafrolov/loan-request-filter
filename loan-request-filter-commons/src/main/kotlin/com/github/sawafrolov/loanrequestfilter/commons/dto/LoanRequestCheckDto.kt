@@ -2,6 +2,9 @@ package com.github.sawafrolov.loanrequestfilter.commons.dto
 
 import java.math.BigDecimal
 
+/**
+ * DTO для проверки заявки с помощью Camunda
+ */
 data class LoanRequestCheckDto(
 
     /**

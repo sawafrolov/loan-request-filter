@@ -1,8 +1,13 @@
 package com.github.sawafrolov.loanrequestfilter.commons.dto
 
+import com.github.sawafrolov.loanrequestfilter.commons.enums.LoanRequestStatus
+import jakarta.validation.constraints.NotNull
 import java.math.BigDecimal
 import java.util.UUID
 
+/**
+ * DTO заявки на кредит
+ */
 data class LoanRequestDto(
 
     /**
@@ -53,5 +58,28 @@ data class LoanRequestDto(
     /**
      * Код региона
      */
-    val regionNumber: Int
+    val regionNumber: Int,
+
+    /**
+     * Список факторов, препятствующих рассмотрению заявки
+     */
+    var stopFactors: String?,
+
+    /**
+     * Статус рассмотрения заявки
+     */
+    @NotNull
+    var status: LoanRequestStatus = LoanRequestStatus.DRAFT,
+
+    /**
+     * Причина отказа в выдаче кредита
+     * (обязательно должна быть заполнена в случае отказа)
+     */
+    var rejectReason: String?,
+
+    /**
+     * read-only (служебное поле базы данных)
+     */
+    @NotNull
+    var protectedFromChange: Boolean = false
 )

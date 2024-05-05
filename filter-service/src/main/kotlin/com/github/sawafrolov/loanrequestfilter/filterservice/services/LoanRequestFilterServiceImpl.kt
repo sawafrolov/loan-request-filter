@@ -1,7 +1,7 @@
 package com.github.sawafrolov.loanrequestfilter.filterservice.services
 
-import com.github.sawafrolov.loanrequestfilter.filterservice.mappers.LoanRequestMapper
 import com.github.sawafrolov.loanrequestfilter.commons.dto.LoanRequestDto
+import com.github.sawafrolov.loanrequestfilter.filterservice.mappers.LoanRequestMapper
 import com.github.sawafrolov.loanrequestfilter.commons.enums.LoanRequestStatus
 import com.github.sawafrolov.loanrequestfilter.starter.jpa.repositories.LoanRequestRepository
 import lombok.RequiredArgsConstructor
