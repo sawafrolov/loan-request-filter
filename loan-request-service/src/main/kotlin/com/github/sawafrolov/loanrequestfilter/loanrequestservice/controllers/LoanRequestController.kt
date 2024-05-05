@@ -22,12 +22,6 @@ class LoanRequestController(
     private val loanRequestService: LoanRequestService
 ) {
 
-    @PutMapping(value = ["/loan-requests/submit/{loanRequestId}"])
-    @ResponseStatus(HttpStatus.OK)
-    fun submitLoanRequest(@PathVariable loanRequestId: UUID) {
-        loanRequestService.submitLoanRequest(loanRequestId)
-    }
-
     @PutMapping(value = ["/loan-requests/accept/{loanRequestId}"])
     @ResponseStatus(HttpStatus.OK)
     fun acceptLoanRequest(@PathVariable loanRequestId: UUID) {

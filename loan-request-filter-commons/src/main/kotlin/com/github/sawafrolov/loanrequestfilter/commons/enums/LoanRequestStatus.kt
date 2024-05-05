@@ -11,6 +11,11 @@ enum class LoanRequestStatus {
     DRAFT,
 
     /**
+     * Отправлена на проверку
+     */
+    SUBMITTED,
+
+    /**
      * Обнаружены стоп-факторы
      */
     STOP_FACTORS,

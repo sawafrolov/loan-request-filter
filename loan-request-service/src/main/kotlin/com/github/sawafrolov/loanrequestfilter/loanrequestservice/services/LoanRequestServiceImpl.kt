@@ -6,9 +6,7 @@ import com.github.sawafrolov.loanrequestfilter.commons.enums.LoanRequestStatus
 import com.github.sawafrolov.loanrequestfilter.loanrequestservice.mappers.LoanRequestMapper
 import com.github.sawafrolov.loanrequestfilter.loanrequestservice.repositories.LoanRequestRepository
 import lombok.RequiredArgsConstructor
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpStatus
-import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
 import java.util.UUID
@@ -17,18 +15,8 @@ import java.util.UUID
 @RequiredArgsConstructor
 class LoanRequestServiceImpl(
     private val loanRequestMapper: LoanRequestMapper,
-    private val loanRequestRepository: LoanRequestRepository,
-    private val kafkaTemplate: KafkaTemplate<String, Any>
+    private val loanRequestRepository: LoanRequestRepository
 ): LoanRequestService {
-
-    @Value("\${kafka.loan-request-topic}")
-    private lateinit var loanRequestTopic: String
-
-    override fun submitLoanRequest(loanRequestId: UUID) {
-        val loanRequest = findLoanRequestById(loanRequestId)
-        val loanRequestDto = loanRequestMapper.mapToDto(loanRequest)
-        kafkaTemplate.send(loanRequestTopic, loanRequestDto).join()
-    }
 
     override fun acceptLoanRequest(loanRequestId: UUID): LoanRequestDto {
         val loanRequest = findLoanRequestById(loanRequestId)

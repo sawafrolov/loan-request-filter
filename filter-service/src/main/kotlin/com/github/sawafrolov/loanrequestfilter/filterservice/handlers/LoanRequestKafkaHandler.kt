@@ -1,25 +1,31 @@
-package com.github.sawafrolov.loanrequestfilter.filterservice.services
+package com.github.sawafrolov.loanrequestfilter.filterservice.handlers
 
 import com.github.sawafrolov.loanrequestfilter.commons.dto.LoanRequestDto
-import com.github.sawafrolov.loanrequestfilter.filterservice.mappers.LoanRequestMapper
 import com.github.sawafrolov.loanrequestfilter.commons.enums.LoanRequestStatus
+import com.github.sawafrolov.loanrequestfilter.filterservice.mappers.LoanRequestMapper
+import com.github.sawafrolov.loanrequestfilter.filterservice.services.LoanRequestValidationService
 import com.github.sawafrolov.loanrequestfilter.starter.jpa.repositories.LoanRequestRepository
 import lombok.RequiredArgsConstructor
 import org.springframework.kafka.annotation.KafkaListener
-import org.springframework.stereotype.Service
+import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
+import java.lang.IllegalArgumentException
 
-@Service
+@Component
 @RequiredArgsConstructor
-class LoanRequestFilterServiceImpl(
+class LoanRequestKafkaHandler(
     private val loanRequestMapper: LoanRequestMapper,
     private val loanRequestRepository: LoanRequestRepository,
-    private val loanRequestValidationService: LoanRequestValidationService,
-): LoanRequestFilterService {
+    private val loanRequestValidationService: LoanRequestValidationService
+) {
 
     @Transactional
     @KafkaListener(topics = ["\${kafka.loan-request-topic}"])
-    override fun submitLoanRequest(loanRequestDto: LoanRequestDto) {
+    fun handleLoanRequest(loanRequestDto: LoanRequestDto) {
+        if (loanRequestDto.status != LoanRequestStatus.SUBMITTED) {
+            throw IllegalArgumentException("Loan request must have status SUBMITTED")
+        }
+
         val loanRequest = loanRequestMapper.mapToEntity(loanRequestDto)
         val loanRequestCheckDto = loanRequestMapper.mapToCheckDto(loanRequestDto)
         val stopFactors = loanRequestValidationService.checkStopFactors(loanRequestCheckDto)
