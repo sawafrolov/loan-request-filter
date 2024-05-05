@@ -11,11 +11,11 @@ import org.springframework.transaction.annotation.Transactional
 
 @Service
 @RequiredArgsConstructor
-class LoanRequestServiceImpl(
+class LoanRequestFilterServiceImpl(
     private val loanRequestMapper: LoanRequestMapper,
     private val loanRequestRepository: LoanRequestRepository,
     private val loanRequestValidationService: LoanRequestValidationService,
-): LoanRequestService {
+): LoanRequestFilterService {
 
     @Transactional
     @KafkaListener(topics = ["\${kafka.loan-request-topic}"])
