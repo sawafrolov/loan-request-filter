@@ -1,6 +1,16 @@
-package com.github.sawafrolov.loanrequestfilter.filterservice
+package com.github.sawafrolov.loanrequestfilter.filterservice.services
 
-import com.github.sawafrolov.loanrequestfilter.filterservice.services.LoanRequestValidationService
+import com.github.sawafrolov.loanrequestfilter.filterservice.companyBorderValuesDto
+import com.github.sawafrolov.loanrequestfilter.filterservice.companyCorrectDto
+import com.github.sawafrolov.loanrequestfilter.filterservice.companyIncorrectDto
+import com.github.sawafrolov.loanrequestfilter.filterservice.humanBorderValuesDto
+import com.github.sawafrolov.loanrequestfilter.filterservice.humanCorrectDto
+import com.github.sawafrolov.loanrequestfilter.filterservice.humanIncorrectDto
+import com.github.sawafrolov.loanrequestfilter.filterservice.krasnoyarskCompanyBorderValuesDto
+import com.github.sawafrolov.loanrequestfilter.filterservice.krasnoyarskCompanyCorrectDto
+import com.github.sawafrolov.loanrequestfilter.filterservice.krasnoyarskCompanyIncorrectDto
+import com.github.sawafrolov.loanrequestfilter.filterservice.nonResidentDto
+
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue
