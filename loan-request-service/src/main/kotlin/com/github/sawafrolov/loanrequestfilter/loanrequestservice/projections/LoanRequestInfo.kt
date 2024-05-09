@@ -34,4 +34,6 @@ interface LoanRequestInfo {
     fun getStatus(): LoanRequestStatus
 
     fun getRejectReason(): String
+
+    fun getProtectedFromChange(): Boolean
 }
