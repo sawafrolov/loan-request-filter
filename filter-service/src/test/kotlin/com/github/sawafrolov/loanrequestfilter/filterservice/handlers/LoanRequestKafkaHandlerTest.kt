@@ -16,14 +16,12 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
-import org.springframework.boot.test.context.SpringBootTest
 import java.util.UUID
 
-@SpringBootTest
 class LoanRequestKafkaHandlerTest(
-    val loanRequestMapper: LoanRequestMapper = mockk(),
-    val loanRequestRepository: LoanRequestRepository = mockk(),
-    val loanRequestValidationService: LoanRequestValidationService = mockk()
+    private val loanRequestMapper: LoanRequestMapper = mockk(),
+    private val loanRequestRepository: LoanRequestRepository = mockk(),
+    private val loanRequestValidationService: LoanRequestValidationService = mockk()
 ) {
 
     private val loanRequestKafkaHandler: LoanRequestKafkaHandler = LoanRequestKafkaHandler(
