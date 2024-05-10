@@ -2,12 +2,13 @@ package com.github.sawafrolov.loanrequestfilter.filterservice
 
 import com.github.sawafrolov.loanrequestfilter.commons.dto.LoanRequestCheckDto
 import com.github.sawafrolov.loanrequestfilter.commons.dto.LoanRequestDto
+import com.github.sawafrolov.loanrequestfilter.commons.entities.LoanRequest
 import com.github.sawafrolov.loanrequestfilter.commons.enums.LoanRequestStatus
 import java.math.BigDecimal
 import java.util.UUID
 
-fun loanRequestDto() = LoanRequestDto(
-    uuid = UUID.randomUUID(),
+fun loanRequestCorrect(uuid: UUID) = LoanRequest(
+    uuid = uuid,
     amount = BigDecimal("1000000.00"),
     term = 3,
     title = "Test Title",
@@ -15,6 +16,57 @@ fun loanRequestDto() = LoanRequestDto(
     companyName = "Test Company",
     description = "some description",
     inn = "1212121212",
+    capital = BigDecimal("500000.00"),
+    regionNumber = 64,
+    stopFactors = null,
+    status = LoanRequestStatus.SUBMITTED,
+    rejectReason = null,
+    protectedFromChange = false
+)
+
+fun loanRequestIncorrect(uuid: UUID) = LoanRequest(
+    uuid = uuid,
+    amount = BigDecimal("1000000.00"),
+    term = 3,
+    title = "Test Title",
+    fio = null,
+    companyName = "Test Company",
+    description = "some description",
+    inn = "9909121212",
+    capital = BigDecimal("500000.00"),
+    regionNumber = 64,
+    stopFactors = null,
+    status = LoanRequestStatus.SUBMITTED,
+    rejectReason = null,
+    protectedFromChange = false
+)
+
+fun loanRequestCorrectDto(uuid: UUID) = LoanRequestDto(
+    uuid = uuid,
+    amount = BigDecimal("1000000.00"),
+    term = 3,
+    title = "Test Title",
+    fio = null,
+    companyName = "Test Company",
+    description = "some description",
+    inn = "1212121212",
+    capital = BigDecimal("500000.00"),
+    regionNumber = 64,
+    stopFactors = null,
+    status = LoanRequestStatus.SUBMITTED,
+    rejectReason = null,
+    protectedFromChange = false
+)
+
+fun loanRequestIncorrectDto(uuid: UUID) = LoanRequestDto(
+    uuid = uuid,
+    amount = BigDecimal("1000000.00"),
+    term = 3,
+    title = "Test Title",
+    fio = null,
+    companyName = "Test Company",
+    description = "some description",
+    inn = "9909121212",
     capital = BigDecimal("500000.00"),
     regionNumber = 64,
     stopFactors = null,
