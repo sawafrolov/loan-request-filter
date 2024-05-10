@@ -6,7 +6,6 @@ import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
 import jakarta.validation.constraints.NotBlank
-import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Pattern
 import jakarta.validation.constraints.Positive
 import lombok.Getter
@@ -30,7 +29,6 @@ class LoanRequest(
     /**
      * Размер кредита
      */
-    @NotNull
     @Positive
     @Column(name = "amount")
     val amount: BigDecimal,
@@ -38,7 +36,6 @@ class LoanRequest(
     /**
      * Срок кредита в месяцах
      */
-    @NotNull
     @Positive
     @Column(name = "term")
     val term: Int,
@@ -82,7 +79,6 @@ class LoanRequest(
     /**
      * Общая сумма денег на счетах компании или физлица
      */
-    @NotNull
     @Positive
     @Column(name = "capital")
     val capital: BigDecimal,
@@ -90,7 +86,6 @@ class LoanRequest(
     /**
      * Код региона
      */
-    @NotNull
     @Positive
     @Column(name = "region_number")
     val regionNumber: Int,
@@ -104,7 +99,6 @@ class LoanRequest(
     /**
      * Статус рассмотрения заявки
      */
-    @NotNull
     @Column(name = "status")
     var status: LoanRequestStatus = LoanRequestStatus.DRAFT,
 
@@ -118,14 +112,12 @@ class LoanRequest(
     /**
      * read-only (служебное поле базы данных)
      */
-    @NotNull
     @Column(name = "protected_from_change", nullable = false, columnDefinition = "boolean default false")
     var protectedFromChange: Boolean = false,
 
     /**
      * Пометка на удаление
      */
-    @NotNull
     @Column(name = "deleted", nullable = false, columnDefinition = "boolean default false")
     var deleted: Boolean = false,
 

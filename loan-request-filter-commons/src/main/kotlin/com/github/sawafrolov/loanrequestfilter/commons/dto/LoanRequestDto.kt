@@ -1,13 +1,19 @@
 package com.github.sawafrolov.loanrequestfilter.commons.dto
 
+import com.fasterxml.jackson.annotation.JsonInclude
 import com.github.sawafrolov.loanrequestfilter.commons.enums.LoanRequestStatus
-import jakarta.validation.constraints.NotNull
+import jakarta.validation.constraints.NotBlank
+import jakarta.validation.constraints.Pattern
+import jakarta.validation.constraints.Positive
+import org.springframework.validation.annotation.Validated
 import java.math.BigDecimal
 import java.util.UUID
 
 /**
  * DTO заявки на кредит
  */
+@Validated
+@JsonInclude(JsonInclude.Include.NON_NULL)
 data class LoanRequestDto(
 
     /**
@@ -18,16 +24,19 @@ data class LoanRequestDto(
     /**
      * Размер кредита
      */
+    @Positive
     val amount: BigDecimal,
 
     /**
      * Срок кредита в месяцах
      */
+    @Positive
     val term: Int,
 
     /**
      * Название заявки
      */
+    @NotBlank
     val title: String,
 
     /**
@@ -48,16 +57,23 @@ data class LoanRequestDto(
     /**
      * ИНН компании или физлица
      */
+    @NotBlank
+    @Pattern(
+        regexp = "^\\d{10}(\\d{2})?\$",
+        message = "ИНН должен состоять из 10 или 12 цифр"
+    )
     val inn: String,
 
     /**
      * Общая сумма денег на счетах компании или физлица
      */
+    @Positive
     val capital: BigDecimal,
 
     /**
      * Код региона
      */
+    @Positive
     val regionNumber: Int,
 
     /**
@@ -68,8 +84,7 @@ data class LoanRequestDto(
     /**
      * Статус рассмотрения заявки
      */
-    @NotNull
-    var status: LoanRequestStatus = LoanRequestStatus.DRAFT,
+    var status: LoanRequestStatus,
 
     /**
      * Причина отказа в выдаче кредита
@@ -80,6 +95,5 @@ data class LoanRequestDto(
     /**
      * read-only (служебное поле базы данных)
      */
-    @NotNull
-    var protectedFromChange: Boolean = false
+    var protectedFromChange: Boolean
 )
