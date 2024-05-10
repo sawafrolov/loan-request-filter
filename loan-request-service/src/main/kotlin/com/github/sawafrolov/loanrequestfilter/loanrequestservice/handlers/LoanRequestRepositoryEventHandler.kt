@@ -24,8 +24,8 @@ class LoanRequestRepositoryEventHandler(
     @HandleAfterSave
     fun handleAfterSave(loanRequest: LoanRequest) {
         if (loanRequest.status == LoanRequestStatus.SUBMITTED) {
-            val loanRequestDto = loanRequestMapper.mapToDto(loanRequest)
-            kafkaTemplate.send(loanRequestTopic, loanRequestDto).join()
+            val loanRequestCheckDto = loanRequestMapper.mapToCheckDto(loanRequest)
+            kafkaTemplate.send(loanRequestTopic, loanRequestCheckDto).join()
         }
     }
 }

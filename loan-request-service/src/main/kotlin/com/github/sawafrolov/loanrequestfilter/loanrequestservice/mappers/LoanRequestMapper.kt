@@ -1,5 +1,6 @@
 package com.github.sawafrolov.loanrequestfilter.loanrequestservice.mappers
 
+import com.github.sawafrolov.loanrequestfilter.commons.dto.LoanRequestCheckDto
 import com.github.sawafrolov.loanrequestfilter.commons.dto.LoanRequestDto
 import com.github.sawafrolov.loanrequestfilter.commons.entities.LoanRequest
 import org.mapstruct.Mapper
@@ -10,4 +11,6 @@ import org.mapstruct.ReportingPolicy
 interface LoanRequestMapper {
 
     fun mapToDto(loanRequest: LoanRequest): LoanRequestDto
+
+    fun mapToCheckDto(loanRequest: LoanRequest): LoanRequestCheckDto
 }

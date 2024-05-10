@@ -50,17 +50,8 @@ spring:
             value:
               delegate:
                 class: org.springframework.kafka.support.serializer.JsonDeserializer
-          json:
-            value:
-              default:
-                type: com.github.sawafrolov.loanrequestfilter.commons.dto.LoanRequestCheckDto
 
 kafka:
   enabled: false
   loan-request-topic: loan-requests
-
-camunda:
-  enabled: false
-  dmn:
-    decision-key: Decision_0ozg60u
-    file-location: loan-request-filter-starter/src/main/resources/camunda/diagram.dmn
+  stop-factors-topic: stop-factors

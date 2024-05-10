@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Pattern
 import jakarta.validation.constraints.Positive
 import org.springframework.validation.annotation.Validated
 import java.math.BigDecimal
+import java.util.UUID
 
 /**
  * DTO для проверки заявки с помощью Camunda
@@ -13,6 +14,11 @@ import java.math.BigDecimal
 @Validated
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class LoanRequestCheckDto(
+
+    /**
+     * UUID
+     */
+    val uuid: UUID,
 
     /**
      * Размер кредита
