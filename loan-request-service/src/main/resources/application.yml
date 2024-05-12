@@ -1,9 +1,0 @@
-spring:
-  application:
-    name: loan-request-service
-
-server:
-  port: 8081
-
-kafka:
-  enabled: true

@@ -1,0 +1,14 @@
+POST http://localhost:8081/api/v1/loan-requests
+Content-Type: application/json
+Accept: application/json
+
+{
+    "companyId": "fd3cc6f4-89f6-486f-89f8-72e6b29c185e",
+    "title": "Test title",
+    "description": "Some description",
+    "amount": "1000000.00",
+    "term": 3,
+    "inn": "1212121212",
+    "capital": "500000.00",
+    "regionNumber": 64
+}

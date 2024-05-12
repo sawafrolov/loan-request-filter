@@ -1,6 +1,7 @@
 package com.github.sawafrolov.loanrequestfilter.commons.entities
 
 import com.github.sawafrolov.loanrequestfilter.commons.enums.LoanRequestStatus
+import com.github.sawafrolov.loanrequestfilter.commons.util.UuidValidator
 import com.querydsl.core.annotations.QueryEntity
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
@@ -10,6 +11,7 @@ import jakarta.validation.constraints.Positive
 import lombok.Getter
 import lombok.Setter
 import org.hibernate.annotations.SQLDelete
+import org.hibernate.annotations.UuidGenerator
 import org.hibernate.annotations.Where
 import org.hibernate.validator.constraints.Length
 import java.math.BigDecimal
@@ -29,6 +31,7 @@ class LoanRequest(
     /**
      * UUID компании
      */
+    @UuidValidator
     @Column(name = "company_id")
     val companyId: UUID,
 
@@ -117,7 +120,8 @@ class LoanRequest(
      * UUID
      */
     @Id
-    @org.hibernate.validator.constraints.UUID
+    @UuidValidator
+    @UuidGenerator
     @Column(name = "uuid", updatable = false, nullable = false)
     val uuid: UUID? = null
 )

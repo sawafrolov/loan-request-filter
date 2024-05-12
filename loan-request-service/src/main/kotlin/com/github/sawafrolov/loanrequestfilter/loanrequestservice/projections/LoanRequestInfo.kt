@@ -11,17 +11,15 @@ interface LoanRequestInfo {
 
     fun getUuid(): UUID?
 
-    fun getAmount(): BigDecimal
-
-    fun getTerm(): Int
+    fun getCompanyId(): UUID
 
     fun getTitle(): String
 
-    fun getFio(): String
-
-    fun getCompanyName(): String
-
     fun getDescription(): String
+
+    fun getAmount(): BigDecimal
+
+    fun getTerm(): Int
 
     fun getInn(): String
 
@@ -29,11 +27,13 @@ interface LoanRequestInfo {
 
     fun getRegionNumber(): Int
 
-    fun getStopFactors(): String
-
     fun getStatus(): LoanRequestStatus
 
-    fun getRejectReason(): String
+    fun getStopFactors(): String?
+
+    fun getRejectReason(): String?
 
     fun getProtectedFromChange(): Boolean
+
+    fun getDeleted(): Boolean
 }
