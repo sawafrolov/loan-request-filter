@@ -6,14 +6,14 @@ import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
 import jakarta.validation.constraints.NotBlank
-import jakarta.validation.constraints.Pattern
 import jakarta.validation.constraints.Positive
 import lombok.Getter
 import lombok.Setter
 import org.hibernate.annotations.SQLDelete
 import org.hibernate.annotations.Where
-import org.hibernate.validator.constraints.UUID
+import org.hibernate.validator.constraints.Length
 import java.math.BigDecimal
+import java.util.UUID
 
 /**
  * Сущность заявки на кредит
@@ -25,6 +25,26 @@ import java.math.BigDecimal
 @SQLDelete(sql = "UPDATE loan-request SET deleted=true WHERE uuid=?")
 @Where(clause = "deleted=false")
 class LoanRequest(
+
+    /**
+     * UUID компании
+     */
+    @Column(name = "company_id")
+    val companyId: UUID,
+
+    /**
+     * Заголовок заявки
+     */
+    @NotBlank
+    @Column(name = "title")
+    val title: String,
+
+    /**
+     * Описание заявки
+     */
+    @NotBlank
+    @Column(name = "description")
+    val description: String,
 
     /**
      * Размер кредита
@@ -41,43 +61,15 @@ class LoanRequest(
     val term: Int,
 
     /**
-     * Название заявки
+     * ИНН компании
      */
     @NotBlank
-    @Column(name = "title")
-    val title: String,
-
-    /**
-     * ФИО физлица
-     */
-    @Column(name = "fio")
-    val fio: String?,
-
-    /**
-     * Название компании
-     */
-    @Column(name = "company_name")
-    val companyName: String?,
-
-    /**
-     * Описание заявки
-     */
-    @Column(name = "description")
-    val description: String?,
-
-    /**
-     * ИНН компании или физлица
-     */
-    @NotBlank
-    @Pattern(
-        regexp = "^\\d{10}(\\d{2})?\$",
-        message = "ИНН должен состоять из 10 или 12 цифр"
-    )
+    @Length(min = 10, max = 10, message = "ИНН компании должен состоять из 10 цифр")
     @Column(name = "inn")
     val inn: String,
 
     /**
-     * Общая сумма денег на счетах компании или физлица
+     * Общая сумма денег на счетах компании
      */
     @Positive
     @Column(name = "capital")
@@ -91,23 +83,23 @@ class LoanRequest(
     val regionNumber: Int,
 
     /**
-     * Список факторов, препятствующих рассмотрению заявки
-     */
-    @Column(name = "stop_factors")
-    var stopFactors: String?,
-
-    /**
      * Статус рассмотрения заявки
      */
     @Column(name = "status")
     var status: LoanRequestStatus = LoanRequestStatus.DRAFT,
 
     /**
+     * Список факторов, препятствующих рассмотрению заявки
+     */
+    @Column(name = "stop_factors")
+    var stopFactors: String? = null,
+
+    /**
      * Причина отказа в выдаче кредита
      * (обязательно должна быть заполнена в случае отказа)
      */
     @Column(name = "reject_reason")
-    var rejectReason: String?,
+    var rejectReason: String? = null,
 
     /**
      * read-only (служебное поле базы данных)
@@ -125,7 +117,7 @@ class LoanRequest(
      * UUID
      */
     @Id
-    @UUID
+    @org.hibernate.validator.constraints.UUID
     @Column(name = "uuid", updatable = false, nullable = false)
-    val uuid: java.util.UUID? = null
+    val uuid: UUID? = null
 )

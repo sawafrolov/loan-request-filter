@@ -7,16 +7,6 @@
           <text>starts with(inn, "9909")</text>
         </inputExpression>
       </input>
-      <input id="InputClause_06r2z6u" label="Компания">
-        <inputExpression id="LiteralExpression_156vwg1" typeRef="boolean">
-          <text>string length(inn) = 10</text>
-        </inputExpression>
-      </input>
-      <input id="Input_1" label="Физическое лицо">
-        <inputExpression id="InputExpression_1" typeRef="boolean">
-          <text>string length(inn) = 12</text>
-        </inputExpression>
-      </input>
       <input id="InputClause_1a1depc" label="Срок кредита в месяцах">
         <inputExpression id="LiteralExpression_1kozn43" typeRef="number">
           <text>term</text>
@@ -43,12 +33,6 @@
         <inputEntry id="UnaryTests_08q0bta">
           <text>true</text>
         </inputEntry>
-        <inputEntry id="UnaryTests_0bb7yxl">
-          <text></text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_0eh4z86">
-          <text></text>
-        </inputEntry>
         <inputEntry id="UnaryTests_0n4m74s">
           <text></text>
         </inputEntry>
@@ -71,12 +55,6 @@
       <rule id="DecisionRule_147q91o">
         <description></description>
         <inputEntry id="UnaryTests_0oq67fp">
-          <text></text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_04rkc7r">
-          <text>true</text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_00lymm7">
           <text></text>
         </inputEntry>
         <inputEntry id="UnaryTests_0ogrv10">
@@ -103,12 +81,6 @@
         <inputEntry id="UnaryTests_0nvjmyi">
           <text></text>
         </inputEntry>
-        <inputEntry id="UnaryTests_1egva2z">
-          <text>true</text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_1ru20ix">
-          <text></text>
-        </inputEntry>
         <inputEntry id="UnaryTests_0rzr74o">
           <text></text>
         </inputEntry>
@@ -131,12 +103,6 @@
       <rule id="DecisionRule_0i6nzgx">
         <description></description>
         <inputEntry id="UnaryTests_1wnfvf5">
-          <text></text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_0uhs2c7">
-          <text>true</text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_1m1s1c2">
           <text></text>
         </inputEntry>
         <inputEntry id="UnaryTests_1bxvhbk">
@@ -162,12 +128,6 @@
         <inputEntry id="UnaryTests_03usdna">
           <text></text>
         </inputEntry>
-        <inputEntry id="UnaryTests_1ndy6ij">
-          <text>true</text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_15uffpx">
-          <text></text>
-        </inputEntry>
         <inputEntry id="UnaryTests_1aq9xff">
           <text></text>
         </inputEntry>
@@ -185,93 +145,6 @@
         </outputEntry>
         <outputEntry id="LiteralExpression_13esu7r">
           <text>"Капитал компании из Красноярского края должен быть больше 5 миллионов рублей"</text>
-        </outputEntry>
-      </rule>
-      <rule id="DecisionRule_18f3cue">
-        <inputEntry id="UnaryTests_1poqzvo">
-          <text></text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_0k35bym">
-          <text></text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_00meomz">
-          <text>true</text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_01wz1ha">
-          <text>&gt; 24</text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_1gckrmk">
-          <text></text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_1p9cgvc">
-          <text></text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_0gwq4ec">
-          <text></text>
-        </inputEntry>
-        <outputEntry id="LiteralExpression_0ia3awo">
-          <text>true</text>
-        </outputEntry>
-        <outputEntry id="LiteralExpression_1rhmujx">
-          <text>"Кредиты выдаются физическим лицам не более чем на 24 месяца"</text>
-        </outputEntry>
-      </rule>
-      <rule id="DecisionRule_0qg6yji">
-        <inputEntry id="UnaryTests_1h0uggp">
-          <text></text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_0p40rld">
-          <text></text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_0goyg0d">
-          <text>true</text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_0m07n1p">
-          <text></text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_0sek4m8">
-          <text>&gt; 2000000.00</text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_1fcinvz">
-          <text></text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_1d37v9w">
-          <text></text>
-        </inputEntry>
-        <outputEntry id="LiteralExpression_1ycaxur">
-          <text>true</text>
-        </outputEntry>
-        <outputEntry id="LiteralExpression_1xol82a">
-          <text>"Кредиты выдаются физическим лицам не более чем на 2 миллиона рублей"</text>
-        </outputEntry>
-      </rule>
-      <rule id="DecisionRule_1t3h1bw">
-        <inputEntry id="UnaryTests_0k48mmq">
-          <text></text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_0atv1ou">
-          <text></text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_0ny4vw2">
-          <text>true</text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_0w8g05i">
-          <text></text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_1e4ldb7">
-          <text></text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_02k2mw4">
-          <text>&lt; amount * 0.1</text>
-        </inputEntry>
-        <inputEntry id="UnaryTests_0wwyn09">
-          <text></text>
-        </inputEntry>
-        <outputEntry id="LiteralExpression_0nphq4b">
-          <text>true</text>
-        </outputEntry>
-        <outputEntry id="LiteralExpression_1f1rqqm">
-          <text>"Капитал физического лица должен превышать 10 процентов от запрашиваемой суммы"</text>
         </outputEntry>
       </rule>
     </decisionTable>

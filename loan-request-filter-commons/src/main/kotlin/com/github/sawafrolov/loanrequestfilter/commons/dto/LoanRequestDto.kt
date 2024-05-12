@@ -3,8 +3,8 @@ package com.github.sawafrolov.loanrequestfilter.commons.dto
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.github.sawafrolov.loanrequestfilter.commons.enums.LoanRequestStatus
 import jakarta.validation.constraints.NotBlank
-import jakarta.validation.constraints.Pattern
 import jakarta.validation.constraints.Positive
+import org.hibernate.validator.constraints.Length
 import org.springframework.validation.annotation.Validated
 import java.math.BigDecimal
 import java.util.UUID
@@ -22,6 +22,23 @@ data class LoanRequestDto(
     val uuid: UUID,
 
     /**
+     * UUID компании
+     */
+    val companyId: UUID,
+
+    /**
+     * Заголовок заявки
+     */
+    @NotBlank
+    val title: String,
+
+    /**
+     * Описание заявки
+     */
+    @NotBlank
+    val description: String,
+
+    /**
      * Размер кредита
      */
     @Positive
@@ -34,38 +51,14 @@ data class LoanRequestDto(
     val term: Int,
 
     /**
-     * Название заявки
+     * ИНН компании
      */
     @NotBlank
-    val title: String,
-
-    /**
-     * ФИО физлица
-     */
-    val fio: String?,
-
-    /**
-     * Название компании
-     */
-    val companyName: String?,
-
-    /**
-     * Описание заявки
-     */
-    val description: String?,
-
-    /**
-     * ИНН компании или физлица
-     */
-    @NotBlank
-    @Pattern(
-        regexp = "^\\d{10}(\\d{2})?\$",
-        message = "ИНН должен состоять из 10 или 12 цифр"
-    )
+    @Length(min = 10, max = 10, message = "ИНН компании должен состоять из 10 цифр")
     val inn: String,
 
     /**
-     * Общая сумма денег на счетах компании или физлица
+     * Общая сумма денег на счетах компании
      */
     @Positive
     val capital: BigDecimal,
@@ -77,23 +70,28 @@ data class LoanRequestDto(
     val regionNumber: Int,
 
     /**
-     * Список факторов, препятствующих рассмотрению заявки
-     */
-    var stopFactors: String?,
-
-    /**
      * Статус рассмотрения заявки
      */
-    var status: LoanRequestStatus,
+    val status: LoanRequestStatus = LoanRequestStatus.DRAFT,
+
+    /**
+     * Список факторов, препятствующих рассмотрению заявки
+     */
+    val stopFactors: String? = null,
 
     /**
      * Причина отказа в выдаче кредита
      * (обязательно должна быть заполнена в случае отказа)
      */
-    var rejectReason: String?,
+    val rejectReason: String? = null,
 
     /**
      * read-only (служебное поле базы данных)
      */
-    var protectedFromChange: Boolean
+    val protectedFromChange: Boolean = false,
+
+    /**
+     * Пометка об удалении
+     */
+    val deleted: Boolean = false
 )

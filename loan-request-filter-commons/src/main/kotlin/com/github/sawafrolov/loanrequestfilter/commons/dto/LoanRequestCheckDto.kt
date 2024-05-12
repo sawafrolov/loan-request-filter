@@ -2,8 +2,8 @@ package com.github.sawafrolov.loanrequestfilter.commons.dto
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import jakarta.validation.constraints.NotBlank
-import jakarta.validation.constraints.Pattern
 import jakarta.validation.constraints.Positive
+import org.hibernate.validator.constraints.Length
 import org.springframework.validation.annotation.Validated
 import java.math.BigDecimal
 import java.util.UUID
@@ -33,17 +33,14 @@ data class LoanRequestCheckDto(
     val term: Int,
 
     /**
-     * ИНН компании или физлица
+     * ИНН компании
      */
     @NotBlank
-    @Pattern(
-        regexp = "^\\d{10}(\\d{2})?\$",
-        message = "ИНН должен состоять из 10 или 12 цифр"
-    )
+    @Length(min = 10, max = 10, message = "ИНН компании должен состоять из 10 цифр")
     val inn: String,
 
     /**
-     * Общая сумма денег на счетах компании или физлица
+     * Общая сумма денег на счетах компании
      */
     @Positive
     val capital: BigDecimal,
