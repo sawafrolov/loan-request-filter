@@ -1,3 +1,4 @@
+### Create first
 POST http://localhost:8081/api/v1/loan-requests
 Content-Type: application/json
 Accept: application/json
@@ -12,3 +13,23 @@ Accept: application/json
     "capital": "500000.00",
     "regionNumber": 64
 }
+
+### Create second
+POST http://localhost:8081/api/v1/loan-requests
+Content-Type: application/json
+Accept: application/json
+
+{
+  "companyId": "fd3cc6f4-89f6-486f-89f8-72e6b29c1db6",
+  "title": "Test title",
+  "description": "Some description",
+  "amount": "1000000.00",
+  "term": 3,
+  "inn": "1212121212",
+  "capital": "500000.00",
+  "regionNumber": 64
+}
+
+### Get by company id
+GET http://localhost:8081/api/v1/loan-requests?companyId=fd3cc6f4-89f6-486f-89f8-72e6b29c1db6
+Accept: application/json
