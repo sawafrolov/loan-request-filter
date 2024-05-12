@@ -2,11 +2,11 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     java
-    id("org.springframework.boot") version "3.1.2"
-    id("io.spring.dependency-management") version "1.1.2"
-    kotlin("jvm") version "1.9.22"
-    kotlin("kapt") version "1.9.22"
-    kotlin("plugin.spring") version "1.9.22"
+    kotlin("jvm")
+    kotlin("kapt")
+    kotlin("plugin.spring")
+    id("org.springframework.boot")
+    id("io.spring.dependency-management")
 }
 
 group = "com.github.sawafrolov"
@@ -43,8 +43,7 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql")
 
     // QueryDSL
-    implementation("com.querydsl:querydsl-core:5.0.0")
-    implementation("com.querydsl:querydsl-jpa:5.0.0")
+    implementation("com.querydsl:querydsl-jpa:5.0.0:jakarta")
 
     // Kafka
     implementation("org.springframework.kafka:spring-kafka")
