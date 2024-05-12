@@ -1,6 +1,5 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:15432/loan-request-filter
     username: pgadmin
     password: pgadmin
     driver-class-name: org.postgresql.Driver
@@ -50,6 +49,12 @@ spring:
             value:
               delegate:
                 class: org.springframework.kafka.support.serializer.JsonDeserializer
+
+logging:
+  level:
+    com:
+      querydsl:
+        sql: DEBUG
 
 kafka:
   enabled: false
