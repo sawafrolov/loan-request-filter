@@ -5,6 +5,8 @@ import com.github.sawafrolov.loanrequestfilter.commons.util.UuidValidator
 import com.querydsl.core.annotations.QueryEntity
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
+import jakarta.persistence.EnumType
+import jakarta.persistence.Enumerated
 import jakarta.persistence.Id
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.Positive
@@ -89,6 +91,7 @@ class LoanRequest(
      * Статус рассмотрения заявки
      */
     @Column(name = "status")
+    @Enumerated(EnumType.STRING)
     var status: LoanRequestStatus = LoanRequestStatus.DRAFT,
 
     /**

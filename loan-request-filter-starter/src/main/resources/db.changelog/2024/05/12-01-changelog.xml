@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1715533705642-1" author="User (generated)">
+        <createTable tableName="loan-request">
+            <column name="uuid" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_loan-request"/>
+            </column>
+            <column name="company_id" type="UUID"/>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="amount" type="DECIMAL"/>
+            <column name="term" type="INT"/>
+            <column name="inn" type="VARCHAR(255)"/>
+            <column name="capital" type="DECIMAL"/>
+            <column name="region_number" type="INT"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="stop_factors" type="VARCHAR(255)"/>
+            <column name="reject_reason" type="VARCHAR(255)"/>
+            <column defaultValueBoolean="false" name="protected_from_change" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="false" name="deleted" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
